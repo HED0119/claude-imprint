@@ -122,14 +122,14 @@ TOOLS = [
     }
 ]
 
-@app.get("/oauth/authorize")
+@app.get("/authorize")
 async def oauth_authorize(client_id: str, redirect_uri: str, response_type: str, state: str = "", code_challenge: str = "", code_challenge_method: str = ""):
     code = secrets.token_urlsafe(32)
     auth_codes[code] = {"redirect_uri": redirect_uri, "code_challenge": code_challenge}
     sep = "&" if "?" in redirect_uri else "?"
     return RedirectResponse(f"{redirect_uri}{sep}code={code}&state={state}")
 
-@app.post("/oauth/token")
+@app.post("/token")
 async def oauth_token(grant_type: str = Form(...), code: str = Form(None), redirect_uri: str = Form(None), client_id: str = Form(None), client_secret: str = Form(None), code_verifier: str = Form(None)):
     if grant_type == "authorization_code":
         if code not in auth_codes:
