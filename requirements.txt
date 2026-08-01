@@ -1,14 +1,4 @@
-# Core memory system
-imprint-memory @ git+https://github.com/Qizhan7/imprint-memory.git
-mcp==1.9.0
-
-# HTTP mode (imprint-memory --http) + Dashboard
-uvicorn>=0.34.0
-starlette>=0.27.0
 fastapi>=0.115.0
-
-# Dashboard (scheduled task YAML parsing)
-pyyaml>=6.0
-
-# System status (imprint-utils)
-psutil>=6.0.0
+uvicorn>=0.34.0
+psycopg2-binary>=2.9.0
+python-multipart>=0.0.20
