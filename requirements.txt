@@ -1,6 +1,7 @@
 # Core memory system
 imprint-memory @ git+https://github.com/Qizhan7/imprint-memory.git
-mcp ≥ 1.0.0
+mcp>=1.0.0
+
 # HTTP mode (imprint-memory --http) + Dashboard
 uvicorn>=0.34.0
 starlette>=0.27.0
