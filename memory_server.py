@@ -180,6 +180,12 @@ async def mcp_endpoint(request: Request, authorization: str = Header(None)):
             return JSONResponse({"jsonrpc": "2.0", "id": req_id, "error": {"code": -32603, "message": str(e)}})
 
     return JSONResponse({"jsonrpc": "2.0", "id": req_id, "error": {"code": -32601, "message": f"Method not found: {method}"}})
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+
+@app.get("/")
+async def serve_index():
+    return FileResponse("xiaoshouji.html")
 
 @app.get("/health")
 async def health():
